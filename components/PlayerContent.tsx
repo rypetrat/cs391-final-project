@@ -19,10 +19,16 @@ const StyledTd = styled.td`
   text-align: center;
 `;
 
-// 
-export default function PlayerContent({  }: {player: PlayerProps}) {
+const StyledDiv = styled.div`
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 0.25%;
+`;
+
+export default function PlayerContent({ player }: {player: PlayerProps}) {
   return (
-    <div style={{ marginTop: "50px", display: "flex", justifyContent: "center", padding: "0.25%" }}>
+    <StyledDiv>
       <StyledTable>
         <thead>
           <tr>
@@ -43,6 +49,6 @@ export default function PlayerContent({  }: {player: PlayerProps}) {
           </tr>
         </tbody>
       </StyledTable>
-    </div>
+    </StyledDiv>
   );
 }

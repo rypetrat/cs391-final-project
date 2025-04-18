@@ -1,4 +1,5 @@
 "use server";
+
 import { PlayerProps } from '@/types';
 
 export default async function getPlayerData(player: string): Promise<PlayerProps[]> {

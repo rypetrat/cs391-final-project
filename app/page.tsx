@@ -27,6 +27,27 @@ const StyledButton = styled.button`
   }
 `;
 
+const StyledOuterDiv = styled.div`
+  text-align: center;
+  margin-top: 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledInnerDiv = styled.div`
+  background-color: #005bb5;
+  margin-bottom: 50px;
+  padding: 2%;
+  padding-bottom: 3%;
+  margin: 0 auto;
+  width: 30%;
+  border-radius: 6px;
+  border: 2px solid #000000;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+`;
+
 export default function Home() {
   const [player, setPlayer] = useState("");
   const { setPlayerData } = usePlayer();
@@ -42,16 +63,15 @@ export default function Home() {
       console.error("Error fetching player data:", error);
     } 
   };
-
   return (
-    <div style={{ textAlign: "center", marginTop: "50px", justifyContent: "center", display: "flex", flexDirection: "column"}}>
-      <div style={{backgroundColor: "#005bb5", marginBottom: "50px", padding: "2%", paddingBottom: "3%", margin: "0 auto", width: "30%", borderRadius: "6px", border: "2px solid #000000", color: "white", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)"}}>
+    <StyledOuterDiv>
+      <StyledInnerDiv>
         <h1>Enter an NHL player's name: </h1>
         <form onSubmit={handleSubmit}>
           <StyledInput type="text" value={player} onChange={(e) => setPlayer(e.target.value)} placeholder="Player Name" required/>
           <StyledButton type="submit">Get Player Data</StyledButton>
         </form>
-      </div>
-    </div>
+      </StyledInnerDiv>
+    </StyledOuterDiv>
   );
 }

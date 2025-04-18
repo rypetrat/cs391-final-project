@@ -19,6 +19,19 @@ const StyledButton = styled.button`
     }
 `;
 
+const StyledErrorDiv = styled.div`
+    text-align: center;
+    padding: 20px;
+`;
+
+const StyledPlayerDataDiv = styled.div`
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+`;
+
 const StyledB = styled.b`
     color: #005bb5;
 `;
@@ -33,17 +46,18 @@ export default function StockDetailsPage() {
 
     if (playerData.length === 0) {
         return (
-            <div style={{textAlign: "center", padding: "20px"}}>
+            <StyledErrorDiv>
                 <p>No player data available.</p>
                 <StyledButton onClick={() => router.push('/')}>Back to Home</StyledButton>
-            </div>
+            </StyledErrorDiv>
         );
     }
-
     return (
-        <div style={{textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px"}}>
-            {playerData.length > 0 ? (playerData.map((player, index) => (<PlayerContent key={index} player={player}/>))) : (<p>No player data available.</p>)}
+        <StyledPlayerDataDiv>
+            {playerData.length > 0 ? (playerData.map((player, index) => 
+                (<PlayerContent key={index} player={player}/>))) : (<p>No player data available.</p>)
+            }
             <StyledButton onClick={() => router.push('/')}>Back to Home</StyledButton>
-        </div>
+        </StyledPlayerDataDiv>
     );
 }
