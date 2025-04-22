@@ -25,18 +25,21 @@ const StyledDiv = styled.div`
   justify-content: center;
   padding: 0.25%;
 `;
-
+// Might need to make a separate component for goalies vs players
 export default function PlayerContent({ player }: {player: PlayerProps}) {
   return (
     <StyledDiv>
       <StyledTable>
         <thead>
           <tr>
-            <StyledTh><u>Stat 1</u></StyledTh>
-            <StyledTh><u>Stat 2</u></StyledTh>
-            <StyledTh><u>Stat 3</u></StyledTh>
-            <StyledTh><u>Stat 4</u></StyledTh>
-            <StyledTh><u>Stat 5</u></StyledTh>
+            <StyledTh><u>Name</u></StyledTh>
+            <StyledTh><u>Position</u></StyledTh>
+            <StyledTh><u>Team</u></StyledTh>
+            <StyledTh><u>Age</u></StyledTh>
+            <StyledTh><u>Number</u></StyledTh>
+            <StyledTh><u>Goals</u></StyledTh>
+            <StyledTh><u>Assists</u></StyledTh>
+            <StyledTh><u>Points</u></StyledTh>
           </tr>
         </thead>
         <tbody>
