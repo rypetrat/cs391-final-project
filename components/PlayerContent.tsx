@@ -27,8 +27,7 @@ const StyledDiv = styled.div`
 `;
 
 export default function PlayerContent({ player }: {player: PlayerProps}) {
-  const time = player.timeOnIce / 60; // Convert seconds to minutes
-  const playerTimeOnIce = time.toFixed(0); // Format to 0 decimal places
+  const playerTimeOnIce = player.timeOnIce / 60; // Convert from seconds to minutes
   return (
     <StyledDiv>
       <StyledTable>
@@ -56,7 +55,7 @@ export default function PlayerContent({ player }: {player: PlayerProps}) {
             <StyledTd>{player.assists}</StyledTd>
             <StyledTd>{player.points}</StyledTd>
             <StyledTd>{player.plusMinus}</StyledTd> 
-            <StyledTd>{playerTimeOnIce}</StyledTd>
+            <StyledTd>{playerTimeOnIce.toFixed(0)}</StyledTd>
             <StyledTd>{player.gamesPlayed}</StyledTd>
           </tr>
         </tbody>
