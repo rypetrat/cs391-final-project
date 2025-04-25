@@ -4,15 +4,18 @@ import { PlayerProps } from "@/types";
 type PlayerContextType = {
   playerData: PlayerProps[];
   setPlayerData: (data: PlayerProps[]) => void;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
 };
 
 const PlayerContext = createContext<PlayerContextType | undefined>(undefined);
 
 export const PlayerProvider = ({ children }: { children: ReactNode }) => {
   const [playerData, setPlayerData] = useState<PlayerProps[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   return (
-    <PlayerContext.Provider value={{ playerData, setPlayerData }}>
+    <PlayerContext.Provider value={{ playerData, setPlayerData, searchTerm, setSearchTerm }}>
       {children}
     </PlayerContext.Provider>
   );

@@ -25,8 +25,10 @@ const StyledDiv = styled.div`
   justify-content: center;
   padding: 0.25%;
 `;
-// Might need to make a separate component for goalies vs players
+
 export default function PlayerContent({ player }: {player: PlayerProps}) {
+  const time = player.timeOnIce / 60; // Convert seconds to minutes
+  const playerTimeOnIce = time.toFixed(0); // Format to 0 decimal places
   return (
     <StyledDiv>
       <StyledTable>
@@ -35,20 +37,27 @@ export default function PlayerContent({ player }: {player: PlayerProps}) {
             <StyledTh><u>Name</u></StyledTh>
             <StyledTh><u>Position</u></StyledTh>
             <StyledTh><u>Team</u></StyledTh>
-            <StyledTh><u>Age</u></StyledTh>
-            <StyledTh><u>Number</u></StyledTh>
+            <StyledTh><u>Shots Taken</u></StyledTh>
             <StyledTh><u>Goals</u></StyledTh>
             <StyledTh><u>Assists</u></StyledTh>
             <StyledTh><u>Points</u></StyledTh>
+            <StyledTh><u>Plus/Minus</u></StyledTh>
+            <StyledTh><u>Time on Ice (Minutes)</u></StyledTh>
+            <StyledTh><u>Games Played</u></StyledTh>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <StyledTd> </StyledTd>
-            <StyledTd> </StyledTd>
-            <StyledTd> </StyledTd>
-            <StyledTd> </StyledTd>
-            <StyledTd> </StyledTd>
+            <StyledTd>{player.fullName}</StyledTd>
+            <StyledTd>{player.position}</StyledTd>
+            <StyledTd>{player.teamAbbrevs}</StyledTd>
+            <StyledTd>{player.shots}</StyledTd>
+            <StyledTd>{player.goals}</StyledTd>
+            <StyledTd>{player.assists}</StyledTd>
+            <StyledTd>{player.points}</StyledTd>
+            <StyledTd>{player.plusMinus}</StyledTd> 
+            <StyledTd>{playerTimeOnIce}</StyledTd>
+            <StyledTd>{player.gamesPlayed}</StyledTd>
           </tr>
         </tbody>
       </StyledTable>

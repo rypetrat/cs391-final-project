@@ -4,7 +4,7 @@ import { PlayerProps } from '@/types';
 
 export default async function getPlayerData(player: string): Promise<PlayerProps[]> {
     try {
-        const API_URL = `https://api.nhle.com/stats/rest/en/skater/realtime?limit=-1&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`;
+        const API_URL = `https://api.nhle.com/stats/rest/en/skater/summary?limit=-1&cayenneExp=seasonId=20232024%20and%20gameTypeId=2`;
         const response = await fetch(API_URL);
         const data = await response.json();
 
@@ -13,20 +13,23 @@ export default async function getPlayerData(player: string): Promise<PlayerProps
             return [];
         }
 
-        const playerData: PlayerProps[] = data.data
-            .filter((entry: any) => {
-                const fullName = `${entry.firstName.toLowerCase()} ${entry.lastName.toLowerCase()}`;
-                return fullName.includes(player.toLowerCase());
-            })
-            .map((entry: any) => ({
+        const filteredData = data.data.filter((entry: any) => 
+            entry.skaterFullName.toLowerCase().includes(player.toLowerCase())
+        );
+
+        const playerData: PlayerProps[] = filteredData.map((entry: any) => ({
                 playerId: entry.playerId,
-                firstName: entry.firstName,
-                lastName: entry.lastName,
-                teamAbbrev: entry.teamAbbrev,
+                fullName: entry.skaterFullName,
+                position: entry.positionCode,
+                teamAbbrevs: entry.teamAbbrevs,
+                shots: entry.shots,
                 goals: entry.goals,
                 assists: entry.assists,
                 points: entry.points,
-                timeOnIcePerGame: entry.timeOnIcePerGame,
+                plusMinus: entry.plusMinus,
+                timeOnIce: entry.timeOnIcePerGame,
+                blockedShots: entry.blockedShots,
+                gamesPlayed: entry.gamesPlayed,
             }));
 
         return playerData;

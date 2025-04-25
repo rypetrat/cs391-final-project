@@ -1,10 +1,15 @@
 export interface PlayerProps {
     playerId: number;
-    firstName: string;
-    lastName: string;
-    teamAbbrev: string;
+    fullName: string;
+    position: string;
+    teamAbbrevs: string;
+    shots: number;
     goals: number;
     assists: number;
     points: number;
-    timeOnIcePerGame: string;
+    plusMinus: number;
+    timeOnIce: number;
+    hits: number;
+    blockedShots: number;
+    gamesPlayed: number;
 }

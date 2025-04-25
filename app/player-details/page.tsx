@@ -52,7 +52,7 @@ const StyledP = styled.p`
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 `;
 
-export default function StockDetailsPage() {
+export default function PlayerDetailsPage() {
     const router = useRouter();
     const { playerData } = usePlayer();
 
@@ -66,7 +66,7 @@ export default function StockDetailsPage() {
     }
     return (
         <StyledPlayerDataDiv>
-            {(playerData.map((player) => (<PlayerContent key={player.id} player={player}/>)))}
+            {(playerData.map((player) => (<PlayerContent key={player.playerId} player={player}/>)))}
             <StyledButton onClick={() => router.push('/')}>Back to Home</StyledButton>
         </StyledPlayerDataDiv>
     );
