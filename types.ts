@@ -1,5 +1,10 @@
-export type PlayerProps = {
-    // stats to be collected from API, these are just placeholders
-    id: number; // unique identifier for the player
-    name: string;
+export interface PlayerProps {
+    playerId: number;
+    firstName: string;
+    lastName: string;
+    teamAbbrev: string;
+    goals: number;
+    assists: number;
+    points: number;
+    timeOnIcePerGame: string;
 }

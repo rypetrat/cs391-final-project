@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <StyledOuterDiv>
       <StyledInnerDiv>
-        <h1>Enter an NHL player's name: </h1>
+        <h1>Enter an NHL player&apos;s name: </h1>
         <form onSubmit={handleSubmit}>
           <StyledInput type="text" value={player} onChange={(e) => setPlayer(e.target.value)} placeholder="Player Name" required/>
           <StyledButton type="submit">Get Player Data</StyledButton>
