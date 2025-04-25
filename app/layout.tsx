@@ -4,6 +4,7 @@ import "./globals.css";
 import React from "react";
 import styled from "styled-components";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Geist } from "next/font/google";
 import { PlayerProvider } from "@/components/PlayerContext";
 
@@ -25,6 +26,7 @@ export default function RootLayout({children}: Readonly<{children:React.ReactNod
       <StyledBody>
         <Header />
         <PlayerProvider>{children}</PlayerProvider>
+        <Footer />
       </StyledBody>
     </html>
   );
