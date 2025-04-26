@@ -37,4 +37,6 @@ export default async function getPlayerData(player: string): Promise<PlayerProps
         console.log(`Error fetching player data for ${player}:`, error);
         return [];
     }
+
 }
+

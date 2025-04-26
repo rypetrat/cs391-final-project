@@ -1,10 +1,13 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { usePlayer } from "@/components/PlayerContext";
-import getPlayerData from "@/lib/getPlayerData/routes"; 
+import getPlayerSpotlight from "@/lib/getPlayerSpotlight/routes";
+import  getPlayerData from "@/lib/getPlayerData/routes";
 import styled from "styled-components";
-import "@/app/globals.css";
+import SearchHistory from "@/components/SearchHistory";
+import SpotlightPlayerPreview from "@/components/SpotlightPlayerPreview";
 
 const StyledInput = styled.input`
   padding: 8px;
@@ -16,14 +19,14 @@ const StyledInput = styled.input`
 
 const StyledButton = styled.button`
   padding: 10px 20px;
-  background-color:rgb(29, 133, 252);
+  background-color: rgb(29, 133, 252);
   color: white;
   border: 2px solid #000000;
   border-radius: 4px;
   cursor: pointer;
   font-size: calc(10px + 0.5vw);
   &:hover {
-    background-color:rgb(0, 126, 252);
+    background-color: rgb(0, 126, 252);
   }
 `;
 
@@ -33,6 +36,7 @@ const StyledOuterDiv = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding-bottom: 80px;
 `;
 
 const StyledInnerDiv = styled.div`
@@ -48,30 +52,79 @@ const StyledInnerDiv = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 `;
 
+const StyledPreviewSection = styled.div`
+  margin-top: 40px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  color: white;
+`;
+
 export default function Home() {
   const [player, setPlayer] = useState("");
+  const [featuredPlayers, setFeaturedPlayers] = useState<any[]>([]);
   const { setPlayerData } = usePlayer();
   const router = useRouter();
 
+  // Fetching Spotlight players from API 
+  useEffect(() => {
+    const fetchSpotlight = async () => {
+      try {
+        const data = await getPlayerSpotlight();
+        setFeaturedPlayers(data);
+      } catch (err) {
+        console.error("Error fetching spotlight:", err);
+      }
+    };
+    fetchSpotlight();
+  }, []);
+
+  // Fetching player info from search query 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const data = await getPlayerData(player);
-      setPlayerData(data); 
-      router.push(`/player-details`);
-    } catch (error) {
-      console.error("Error fetching player data:", error);
-    } 
+      setPlayerData(data);
+      
+      // Update search history in localStorage
+      let history: string[] = JSON.parse(sessionStorage.getItem("searchHistory") || "[]");
+      if (!history.includes(player)) {
+        history = [player, ...history].slice(0, 5);
+        sessionStorage.setItem("searchHistory", JSON.stringify(history));
+      }
+
+      router.push("/player-details");
+    } catch (err) {
+      console.error("Error fetching player:", err);
+    }
   };
+
   return (
     <StyledOuterDiv>
       <StyledInnerDiv>
-        <h1>Enter an NHL player&apos;s name: </h1>
+        <h1>Enter an NHL player&apos;s name:</h1>
         <form onSubmit={handleSubmit}>
-          <StyledInput type="text" value={player} onChange={(e) => setPlayer(e.target.value)} placeholder="Player Name" required/>
-          <StyledButton type="submit">Get Player Data</StyledButton>
+          <StyledInput
+            type="text"
+            value={player}
+            onChange={(e) => setPlayer(e.target.value)}
+            placeholder="Player Name"
+            required
+          />
+          <StyledButton type="submit">Search</StyledButton>
         </form>
       </StyledInnerDiv>
+
+      <SearchHistory />
+
+      <StyledPreviewSection>
+        <h2>Featured Players</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+          {featuredPlayers.map((p) => (
+            <SpotlightPlayerPreview key={p.playerId} player={p} />
+          ))}
+        </div>
+      </StyledPreviewSection>
     </StyledOuterDiv>
   );
 }
