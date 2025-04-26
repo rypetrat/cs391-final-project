@@ -62,7 +62,7 @@ const StyledPreviewSection = styled.div`
 
 export default function Home() {
   const [player, setPlayer] = useState("");
-  const [year, setYear] = useState(2023);
+  const [year, setYear] = useState(2024);
   const [featuredPlayers, setFeaturedPlayers] = useState<any[]>([]);
   const { setPlayerData } = usePlayer();
   const router = useRouter();
@@ -83,7 +83,7 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const data = await getPlayerData(player, year); // Pass player and year
+      const data = await getPlayerData(player, year);
       setPlayerData(data);
 
       // Update search history

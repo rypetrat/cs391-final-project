@@ -34,14 +34,6 @@ const StyledPlayerDataDiv = styled.div`
     padding: 20px;
 `;
 
-const StyledB = styled.b`
-    color: #005bb5;
-`;
-
-const StyledB2 = styled.b<{ value: number }>`
-    color: ${props => props.value > 0 ? '#4CAF50' : props.value < 0 ? '#F44336' : '#000000'};
-`;
-
 const StyledP = styled.p`
     font-size: calc(10px + 0.5vw);
     margin: 0;
