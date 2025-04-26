@@ -15,9 +15,9 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   return (
-    <PlayerContext.Provider value={{ playerData, setPlayerData, searchTerm, setSearchTerm }}>
-      {children}
-    </PlayerContext.Provider>
+      <PlayerContext.Provider value={{ playerData, setPlayerData, searchTerm, setSearchTerm }}>
+        {children}
+      </PlayerContext.Provider>
   );
 };
 

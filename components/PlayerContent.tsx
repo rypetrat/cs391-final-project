@@ -29,9 +29,9 @@ const StyledDiv = styled.div`
 export default function PlayerContent({ player }: {player: PlayerProps}) {
   const playerTimeOnIce = player.timeOnIce / 60; // Convert from seconds to minutes
   return (
-    <StyledDiv>
-      <StyledTable>
-        <thead>
+      <StyledDiv>
+        <StyledTable>
+          <thead>
           <tr>
             <StyledTh><u>Name</u></StyledTh>
             <StyledTh><u>Position</u></StyledTh>
@@ -44,8 +44,8 @@ export default function PlayerContent({ player }: {player: PlayerProps}) {
             <StyledTh><u>Time on Ice (Minutes)</u></StyledTh>
             <StyledTh><u>Games Played</u></StyledTh>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           <tr>
             <StyledTd>{player.fullName}</StyledTd>
             <StyledTd>{player.position}</StyledTd>
@@ -54,12 +54,12 @@ export default function PlayerContent({ player }: {player: PlayerProps}) {
             <StyledTd>{player.goals}</StyledTd>
             <StyledTd>{player.assists}</StyledTd>
             <StyledTd>{player.points}</StyledTd>
-            <StyledTd>{player.plusMinus}</StyledTd> 
+            <StyledTd>{player.plusMinus}</StyledTd>
             <StyledTd>{playerTimeOnIce.toFixed(0)}</StyledTd>
             <StyledTd>{player.gamesPlayed}</StyledTd>
           </tr>
-        </tbody>
-      </StyledTable>
-    </StyledDiv>
+          </tbody>
+        </StyledTable>
+      </StyledDiv>
   );
 }

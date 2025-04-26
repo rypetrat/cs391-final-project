@@ -64,11 +64,11 @@ export default function SpotlightPlayerPreview({ player }: { player: any }) {
   };
 
   return (
-    <Card onClick={handleClick}>
-      {player.headshot && <Headshot src={player.headshot} alt={`${player.fullName} headshot`} />}
-      <Name>{player.fullName}</Name>
-      <Subtitle>Position: {player.position}</Subtitle>
-      <Subtitle>Team: {player.teamAbbrevs}</Subtitle>
-    </Card>
+      <Card onClick={handleClick}>
+        {player.headshot && <Headshot src={player.headshot} alt={`${player.fullName} headshot`} />}
+        <Name>{player.fullName}</Name>
+        <Subtitle>Position: {player.position}</Subtitle>
+        <Subtitle>Team: {player.teamAbbrevs}</Subtitle>
+      </Card>
   );
 }

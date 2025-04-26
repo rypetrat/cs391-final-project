@@ -19,7 +19,7 @@ export default async function getPlayerSpotlight(): Promise<PlayerProps[]> {
       fullName: entry.name.default,
       position: entry.position,
       teamAbbrevs: entry.teamTriCode,
-      headshot: entry.headshot,        
+      headshot: entry.headshot,
       shots: 0,
       goals: 0,
       assists: 0,

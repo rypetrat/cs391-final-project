@@ -62,11 +62,11 @@ const StyledPreviewSection = styled.div`
 
 export default function Home() {
   const [player, setPlayer] = useState("");
+  const [year, setYear] = useState(2023);
   const [featuredPlayers, setFeaturedPlayers] = useState<any[]>([]);
   const { setPlayerData } = usePlayer();
   const router = useRouter();
 
-  // Fetching Spotlight players from API 
   useEffect(() => {
     const fetchSpotlight = async () => {
       try {
@@ -83,10 +83,10 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const data = await getPlayerData(player);
+      const data = await getPlayerData(player, year); // Pass player and year
       setPlayerData(data);
-      
-      // Update search history in localStorage
+
+      // Update search history
       let history: string[] = JSON.parse(sessionStorage.getItem("searchHistory") || "[]");
       if (!history.includes(player)) {
         history = [player, ...history].slice(0, 5);
@@ -100,31 +100,38 @@ export default function Home() {
   };
 
   return (
-    <StyledOuterDiv>
-      <StyledInnerDiv>
-        <h1>Enter an NHL player&apos;s name:</h1>
-        <form onSubmit={handleSubmit}>
-          <StyledInput
-            type="text"
-            value={player}
-            onChange={(e) => setPlayer(e.target.value)}
-            placeholder="Player Name"
-            required
-          />
-          <StyledButton type="submit">Search</StyledButton>
-        </form>
-      </StyledInnerDiv>
+      <StyledOuterDiv>
+        <StyledInnerDiv>
+          <h1>Enter an NHL player&apos;s name:</h1>
+          <form onSubmit={handleSubmit}>
+            <StyledInput
+                type="text"
+                value={player}
+                onChange={(e) => setPlayer(e.target.value)}
+                placeholder="Player Name"
+                required
+            />
+            <StyledInput
+                type="number"
+                value={year}
+                onChange={(e) => setYear(Number(e.target.value))}
+                placeholder="Start Year (e.g., 2023)"
+                required
+            />
+            <StyledButton type="submit">Search</StyledButton>
+          </form>
+        </StyledInnerDiv>
 
-      <SearchHistory />
+        <SearchHistory />
 
-      <StyledPreviewSection>
-        <h2>Featured Players</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-          {featuredPlayers.map((p) => (
-            <SpotlightPlayerPreview key={p.playerId} player={p} />
-          ))}
-        </div>
-      </StyledPreviewSection>
-    </StyledOuterDiv>
+        <StyledPreviewSection>
+          <h2>Featured Players</h2>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+            {featuredPlayers.map((p) => (
+                <SpotlightPlayerPreview key={p.playerId} player={p} />
+            ))}
+          </div>
+        </StyledPreviewSection>
+      </StyledOuterDiv>
   );
 }
