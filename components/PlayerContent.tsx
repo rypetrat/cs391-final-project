@@ -6,6 +6,7 @@ const StyledTable = styled.table`
   border-spacing: 40px 0;
   background-color: #005bb5;
   color: white;
+  border: 2px solid #000000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 `;
@@ -41,7 +42,7 @@ export default function PlayerContent({ player }: {player: PlayerProps}) {
             <StyledTh><u>Assists</u></StyledTh>
             <StyledTh><u>Points</u></StyledTh>
             <StyledTh><u>Plus/Minus</u></StyledTh>
-            <StyledTh><u>Time on Ice (Minutes)</u></StyledTh>
+            <StyledTh><u>Avg Minutes on Ice</u></StyledTh>
             <StyledTh><u>Games Played</u></StyledTh>
           </tr>
           </thead>

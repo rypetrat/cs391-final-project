@@ -36,7 +36,7 @@ const StyledPlayerDataDiv = styled.div`
 
 const StyledP = styled.p`
     font-size: calc(10px + 0.5vw);
-    margin: 0;
+    margin-top: 80px;
     background-color: #005bb5;
     color: white;
     padding: 10px;

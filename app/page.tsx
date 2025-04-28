@@ -32,7 +32,7 @@ const StyledButton = styled.button`
 
 const StyledOuterDiv = styled.div`
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -58,6 +58,12 @@ const StyledPreviewSection = styled.div`
   max-width: 900px;
   margin: 0 auto;
   color: white;
+`;
+
+const InnerStyledPreviewSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export default function Home() {
@@ -105,18 +111,18 @@ export default function Home() {
           <h1>Enter an NHL player&apos;s name:</h1>
           <form onSubmit={handleSubmit}>
             <StyledInput
-                type="text"
-                value={player}
-                onChange={(e) => setPlayer(e.target.value)}
-                placeholder="Player Name"
-                required
+              type="text"
+              value={player}
+              onChange={(e) => setPlayer(e.target.value)}
+              placeholder="Player Name"
+              required
             />
             <StyledInput
-                type="number"
-                value={year}
-                onChange={(e) => setYear(Number(e.target.value))}
-                placeholder="Start Year (e.g., 2023)"
-                required
+              type="number"
+              value={year}
+              onChange={(e) => setYear(Number(e.target.value))}
+              placeholder="Start Year (e.g., 2023)"
+              required
             />
             <StyledButton type="submit">Search</StyledButton>
           </form>
@@ -125,12 +131,12 @@ export default function Home() {
         <SearchHistory />
 
         <StyledPreviewSection>
-          <h2>Featured Players</h2>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+          <h1>Featured Players</h1>
+          <InnerStyledPreviewSection>
             {featuredPlayers.map((p) => (
                 <SpotlightPlayerPreview key={p.playerId} player={p} />
             ))}
-          </div>
+          </InnerStyledPreviewSection>
         </StyledPreviewSection>
       </StyledOuterDiv>
   );

@@ -1,4 +1,3 @@
-// Spotlight Players Component 
 // Eva Romero
 
 "use client";
@@ -19,6 +18,7 @@ const Card = styled.div`
   padding: 16px;
   border-radius: 10px;
   text-align: center;
+  border: 2px solid #000000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   cursor: pointer;
   transition: transform 0.2s;
@@ -55,7 +55,7 @@ export default function SpotlightPlayerPreview({ player }: { player: any }) {
 
   const handleClick = async () => {
     try {
-      const data = await getPlayerData(player.fullName);
+      const data = await getPlayerData(player.fullName, 2024);
       setPlayerData(data);
       router.push('/player-details');
     } catch (error) {

@@ -9,7 +9,5 @@ export interface PlayerProps {
     points: number;
     plusMinus: number;
     timeOnIce: number;
-    hits: number;
-    blockedShots: number;
     gamesPlayed: number;
 }

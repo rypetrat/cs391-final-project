@@ -30,7 +30,6 @@ export default async function getPlayerData(player: string, year1: number): Prom
             points: entry.points,
             plusMinus: entry.plusMinus,
             timeOnIce: entry.timeOnIcePerGame,
-            blockedShots: entry.blockedShots,
             gamesPlayed: entry.gamesPlayed,
         }));
 
