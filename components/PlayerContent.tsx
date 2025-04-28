@@ -1,3 +1,4 @@
+// Ryan Petrat
 import { PlayerProps } from "@/types";
 import styled from "styled-components";
 

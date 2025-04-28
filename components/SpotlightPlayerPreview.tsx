@@ -1,10 +1,8 @@
 // Eva Romero
-
 "use client";
 
 import { useRouter } from "next/navigation";
 import styled from "styled-components";
-
 // Importing to make preview clickable
 import { usePlayer } from "@/components/PlayerContext";
 import getPlayerData from "@/lib/getPlayerData/routes";
