@@ -1,3 +1,4 @@
+// Ryan Petrat, Brendan Coyne, George Simotas
 "use client";
 
 import "./globals.css";

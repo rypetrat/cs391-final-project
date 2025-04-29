@@ -1,3 +1,4 @@
+// Ryan Petrat, Brendan Coyne
 export interface PlayerProps {
     playerId: number;
     fullName: string;

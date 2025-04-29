@@ -1,4 +1,4 @@
-// Ryan Petrat
+// Ryan Petrat, Brendan Coyne
 import { createContext, useContext, useState, ReactNode } from "react";
 import { PlayerProps } from "@/types";
 
