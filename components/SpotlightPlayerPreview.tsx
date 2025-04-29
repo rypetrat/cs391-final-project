@@ -1,4 +1,4 @@
-// Eva Romero
+// Eva Romero , Brendan Coyne, Ryan Petrat
 // Defines the spotlight player preview cards component
 "use client";
 
