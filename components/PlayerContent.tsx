@@ -1,4 +1,4 @@
-// Ryan Petrat
+// Ryan Petrat, Brendan Coyne
 import { PlayerProps } from "@/types";
 import styled from "styled-components";
 
@@ -30,6 +30,7 @@ const StyledDiv = styled.div`
 
 export default function PlayerContent({ player }: {player: PlayerProps}) {
   const playerTimeOnIce = player.timeOnIce / 60; // Convert from seconds to minutes
+  // Render the player data in a table format
   return (
       <StyledDiv>
         <StyledTable>

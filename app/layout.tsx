@@ -1,7 +1,6 @@
 // Ryan Petrat, Brendan Coyne, George Simotas
 "use client";
 
-import "./globals.css";
 import React from "react";
 import styled from "styled-components";
 import Header from "@/components/Header";

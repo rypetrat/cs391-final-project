@@ -75,6 +75,7 @@ export default function Home() {
   const { setPlayerData } = usePlayer();
   const router = useRouter();
 
+  // Fetches featured players spotlight data
   useEffect(() => {
     const fetchSpotlight = async () => {
       try {
@@ -112,6 +113,7 @@ export default function Home() {
         <StyledInnerDiv>
           <h1>Enter an NHL player&apos;s name:</h1>
           <form onSubmit={handleSubmit}>
+            {/* Input for the players name */}
             <StyledInput
               type="text"
               value={player}
@@ -119,6 +121,7 @@ export default function Home() {
               placeholder="Player Name"
               required
             />
+            {/* Input for the year */}
             <StyledInput
               type="number"
               value={year}
@@ -130,8 +133,10 @@ export default function Home() {
           </form>
         </StyledInnerDiv>
 
+        {/* Search History Component */}
         <SearchHistory />
 
+        {/* Featured players Component */}
         <StyledPreviewSection>
           <h1>Featured Players</h1>
           <InnerStyledPreviewSection>

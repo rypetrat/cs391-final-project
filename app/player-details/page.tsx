@@ -49,6 +49,7 @@ export default function PlayerDetailsPage() {
     const router = useRouter();
     const { playerData } = usePlayer();
 
+    // Check if playerData is empty and display a message
     if (playerData.length === 0) {
         return (
             <StyledErrorDiv>
@@ -57,6 +58,7 @@ export default function PlayerDetailsPage() {
             </StyledErrorDiv>
         );
     }
+    // If playerData exists map player data to be rendered by PlayerContent component
     return (
         <StyledPlayerDataDiv>
             {(playerData.map((player) => (<PlayerContent key={player.playerId} player={player}/>)))}
