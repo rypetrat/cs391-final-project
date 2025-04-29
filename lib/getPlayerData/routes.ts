@@ -1,4 +1,5 @@
 // Ryan Petrat, Brendan Coyne, Eva Romero
+// Defines the function to fetch player data from the NHL API
 "use server";
 
 import { PlayerProps } from '@/types';

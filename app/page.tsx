@@ -1,4 +1,5 @@
 // Ryan Petrat, Eva Romero, Brendan Coyne
+// Defines the layout for the home page of the application
 "use client";
 
 import { useState, useEffect } from "react";

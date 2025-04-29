@@ -1,4 +1,5 @@
 // Ryan Petrat
+// Defines the header for the application
 "use client";
 
 import styled from "styled-components";

@@ -1,4 +1,5 @@
 // Ryan Petrat, Brendan Coyne
+// Gathers and manages player data and search term to be passed through context
 import { createContext, useContext, useState, ReactNode } from "react";
 import { PlayerProps } from "@/types";
 

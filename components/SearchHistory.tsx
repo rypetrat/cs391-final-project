@@ -1,4 +1,5 @@
  // Eva Romero
+ // Defines the search history component for the application
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styled from "styled-components";

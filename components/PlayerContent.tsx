@@ -1,4 +1,5 @@
 // Ryan Petrat, Brendan Coyne
+// Defines how the content is displayed for a player(s)
 import { PlayerProps } from "@/types";
 import styled from "styled-components";
 

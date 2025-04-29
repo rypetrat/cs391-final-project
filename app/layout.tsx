@@ -1,4 +1,5 @@
 // Ryan Petrat, Brendan Coyne, George Simotas
+// Defines the layout for the entire application
 "use client";
 
 import React from "react";

@@ -1,4 +1,5 @@
 // Eva Romero, Brendan Coyne
+// Defines the function to fetch player spotlight data from the NHL API
 "use server";
 
 import { PlayerProps } from "@/types";

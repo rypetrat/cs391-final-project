@@ -1,4 +1,5 @@
 // Eva Romero
+// Defines the spotlight player preview cards component
 "use client";
 
 import { useRouter } from "next/navigation";
