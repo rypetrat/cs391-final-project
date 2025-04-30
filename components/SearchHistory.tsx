@@ -1,4 +1,4 @@
- // Eva Romero, BrendanCoyne, Ryan Petrat
+ // Eva Romero, Brendan Coyne, Ryan Petrat
  // Defines the search history component for the application
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";

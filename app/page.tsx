@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { usePlayer } from "@/components/PlayerContext";
 import getPlayerSpotlight from "@/lib/getPlayerSpotlight/routes";
-import  getPlayerData from "@/lib/getPlayerData/routes";
+import getPlayerData from "@/lib/getPlayerData/routes";
 import styled from "styled-components";
 import SearchHistory from "@/components/SearchHistory";
 import SpotlightPlayerPreview from "@/components/SpotlightPlayerPreview";
